@@ -1,0 +1,4 @@
+Adafruit CircuitPython 8.0.5-1-g8e947f456a-dirty on 2023-09-20; BLOK with rp2040
+Board ID:boardsource_blok
+UID:E462B488CF525237
+boot.py output:
