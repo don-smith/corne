@@ -30,7 +30,8 @@ class TapDanceKey(Key):
 
 class TapDance(HoldTap):
     def __init__(self):
-        super().__init__(_make_key=False)
+        # super().__init__(_make_key=False)
+        super().__init__(_make_key=True)
         make_argumented_key(
             names=('TD',),
             constructor=TapDanceKey,
