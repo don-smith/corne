@@ -101,6 +101,8 @@ AERO_DN = KC.LOPT(KC.J)
 AERO_COM = KC.LOPT(KC.COMM)
 AERO_DOT = KC.LOPT(KC.DOT)
 AERO_SLH = KC.LOPT(KC.SLSH)
+AERO_TAB = KC.LOPT(KC.TAB)
+RAYCAST = KC.LOPT(KC.SPC)
 
 # fmt:off
 keyboard.keymap = [
@@ -178,20 +180,20 @@ keyboard.keymap = [
     
     # L4 - Aerospace (all keys have ALT/OPT applied above)
     # ,-----------------------------------------.                    ,-----------------------------------------.
-    # |      |  1   |  2   |  3   |  4   |  5   |                    |  6   |  7   |  8   |  9   |  0   |      |
+    # | Tab  |  1   |  2   |  3   |  4   |  5   |                    |  6   |  7   |  8   |  9   |  0   |      |
     # |------+------+------+------+------+------|                    |------+------+------+------+------+------|
     # |      |  A   |  S   |  D   |  F   |  G   |                    | Left | Down |  Up  | Right|      |      |
     # |------+------+------+------+------+------|                    |------+------+------+------+------+------|
     # | LSft |  Z   |  X   |  C   |  V   |  B   |-------.    ,-------|  N   |  M   |  ,   |  .   |  /   | RSft |
     # `-----------------------------------------/       /     \      \-----------------------------------------'
-    #                          |  L3  |  L4  | / Enter /       \ Spac \  |  L4  | RCmd |
-    #                          |      |  --  |/       /         \      \ |  --  |      |
+    #                          |  L3  |  L4  | / Enter /       \ Ray  \  |  L4  | RCmd |
+    #                          |      |  --  |/       /         \ Cast \ |  --  |      |
     #                          `---------------------'           '------''-------------'
     [
-        XXXXXXX,  AERO_1,  AERO_2,  AERO_3,  AERO_4,  AERO_5,                 AERO_6,   AERO_7,   AERO_8,  AERO_9,  AERO_0,  XXXXXXX,
+        AERO_TAB, AERO_1,  AERO_2,  AERO_3,  AERO_4,  AERO_5,                 AERO_6,   AERO_7,   AERO_8,  AERO_9,  AERO_0,  XXXXXXX,
         XXXXXXX,  AERO_A,  AERO_S,  AERO_D,  AERO_F,  AERO_G,                 AERO_LT,  AERO_DN,  AERO_UP, AERO_RT, XXXXXXX, XXXXXXX,
         KC.LSFT,  AERO_Z,  AERO_X,  AERO_C,  AERO_V,  AERO_B,                 AERO_N,   AERO_M,  AERO_COM, AERO_DOT, AERO_SLH, KC.RSFT,
-                                         L3,    L1_L4_TAP, KC.ENT,        KC.SPC,    L2_L4_TAP,    KC.RGUI,
+                                         L3,    L1_L4_TAP, KC.ENT,        RAYCAST,    L2_L4_TAP,    KC.RGUI,
     ],
 
     # L5 - LEDS
