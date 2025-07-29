@@ -6,7 +6,7 @@ from kmk.keys import KC
 from kmk.extensions.rgb import RGB
 from kmk.modules.split import Split
 from kmk.modules.layers import Layers
-from kmk.modules.combos import Combos, Sequence
+from kmk.modules.combos import Combos, Chord
 from kmk.modules.macros import Macros, Press, Release, Tap
 from kmk.modules.tapdance import TapDance
 # from kmk.extensions.display.ssd1306 import SSD1306
@@ -22,7 +22,7 @@ layers = Layers(LEDS)
 # Define key combos
 combos = Combos()
 combos.combos = [
-    Sequence((KC.LCTL, KC.QUOT), KC.ESC)
+    Chord((KC.LCTL, KC.QUOT), KC.ESC)
 ]
 
 # Enable macros
