@@ -45,18 +45,18 @@ rgb = RGB(
 _______ = KC.TRNS
 XXXXXXX = KC.NO
 
-RGB_TOG = KC.RGB_TOG
-RGB_HUI = KC.RGB_HUI
-RGB_HUD = KC.RGB_HUD
-RGB_SAI = KC.RGB_SAI
-RGB_SAD = KC.RGB_SAD
-RGB_VAI = KC.RGB_VAI
-RGB_VAD = KC.RGB_VAD
+RGB_TOG = KC.RGB_TOG    # Toggle on/off
+RGB_HUI = KC.RGB_HUI    # Hue increase
+RGB_HUD = KC.RGB_HUD    # Hue decrease
+RGB_SAI = KC.RGB_SAI    # Saturation increase
+RGB_SAD = KC.RGB_SAD    # Saturation decrease
+RGB_VAI = KC.RGB_VAI    # Value increase
+RGB_VAD = KC.RGB_VAD    # Value decrease
 RGB_M_P = KC.RGB_M_P 	# RGB_MODE_PLAIN            Static RGB
 RGB_M_K = KC.RGB_M_K 	# RGB_MODE_KNIGHT           Knight Rider animation
 RGB_M_S = KC.RGB_M_S 	# RGB_MODE_SWIRL            Swirl animation
 RGB_M_B = KC.RGB_M_B 	# RGB_MODE_BREATHE          Breathing animation
-RGB_M_R = KC.RGB_M_R 	# RGB_MODE_RAINBOW 	        Rainbow animation
+RGB_M_R = KC.RGB_M_R 	# RGB_MODE_RAINBOW 	    Rainbow animation
 RGB_M_BR = KC.RGB_M_BR  # RGB_MODE_BREATHE_RAINBOW  Breathing rainbow animation
 
 # Define layers
@@ -182,7 +182,7 @@ keyboard.keymap = [
     # ,-----------------------------------------.                    ,-----------------------------------------.
     # | Tab  |  1   |  2   |  3   |  4   |  5   |                    |  6   |  7   |  8   |  9   |  0   |      |
     # |------+------+------+------+------+------|                    |------+------+------+------+------+------|
-    # |      |  A   |  S   |  D   |  F   |  G   |                    | Left | Down |  Up  | Right|      |      |
+    # |      |  A   |  S   |  D   |  F   |  G   |                    | Left | Down |  Up  | Right|  ;   |      |
     # |------+------+------+------+------+------|                    |------+------+------+------+------+------|
     # | LSft |  Z   |  X   |  C   |  V   |  B   |-------.    ,-------|  N   |  M   |  ,   |  .   |  /   | RSft |
     # `-----------------------------------------/       /     \      \-----------------------------------------'
@@ -191,7 +191,7 @@ keyboard.keymap = [
     #                          `---------------------'           '------''-------------'
     [
         AERO_TAB, AERO_1,  AERO_2,  AERO_3,  AERO_4,  AERO_5,                 AERO_6,   AERO_7,   AERO_8,  AERO_9,  AERO_0,  XXXXXXX,
-        XXXXXXX,  AERO_A,  AERO_S,  AERO_D,  AERO_F,  AERO_G,                 AERO_LT,  AERO_DN,  AERO_UP, AERO_RT, XXXXXXX, XXXXXXX,
+        XXXXXXX,  AERO_A,  AERO_S,  AERO_D,  AERO_F,  AERO_G,                 AERO_LT,  AERO_DN,  AERO_UP, AERO_RT, KC.SCLN, XXXXXXX,
         KC.LSFT,  AERO_Z,  AERO_X,  AERO_C,  AERO_V,  AERO_B,                 AERO_N,   AERO_M,  AERO_COM, AERO_DOT, AERO_SLH, KC.RSFT,
                                          L3,    L1_L4_TAP, KC.ENT,        RAYCAST,    L2_L4_TAP,    KC.RGUI,
     ],
