@@ -6,7 +6,7 @@ from kmk.keys import KC
 from kmk.extensions.rgb import RGB
 from kmk.modules.split import Split
 from kmk.modules.layers import Layers
-from kmk.modules.combos import Combos, Chord
+from kmk.modules.combos import Combos, Sequence
 from kmk.modules.macros import Macros, Press, Release, Tap
 from kmk.modules.tapdance import TapDance
 # from kmk.extensions.display.ssd1306 import SSD1306
@@ -22,7 +22,7 @@ layers = Layers(LEDS)
 # Define key combos
 combos = Combos()
 combos.combos = [
-    Chord((KC.LCTL, KC.QUOT), KC.ESC)
+    Sequence((KC.LCTL, KC.QUOT), KC.ESC)
 ]
 
 # Enable macros
@@ -63,7 +63,7 @@ RGB_M_BR = KC.RGB_M_BR  # RGB_MODE_BREATHE_RAINBOW  Breathing rainbow animation
 L1 = KC.MO(1) # Move & Numbers
 L2 = KC.MO(2) # Symbols
 L3 = KC.MO(3) # Braces
-L4 = KC.MO(4) # Aerospace
+L4 = KC.MO(4) # Hyperland
 L5 = KC.MO(5) # LEDS
 
 # Define tap dance for L1/L4 and L2/L4
@@ -71,38 +71,23 @@ L5 = KC.MO(5) # LEDS
 L1_L4_TAP = KC.TD(L1, L4)
 L2_L4_TAP = KC.TD(L2, L4)
 
-# Create shorter Aerospace key names
-AERO_1 = KC.LOPT(KC.N1)
-AERO_2 = KC.LOPT(KC.N2)
-AERO_3 = KC.LOPT(KC.N3)
-AERO_4 = KC.LOPT(KC.N4)
-AERO_5 = KC.LOPT(KC.N5)
-AERO_6 = KC.LOPT(KC.N6)
-AERO_7 = KC.LOPT(KC.N7)
-AERO_8 = KC.LOPT(KC.N8)
-AERO_9 = KC.LOPT(KC.N9)
-AERO_0 = KC.LOPT(KC.N0)
-AERO_A = KC.LOPT(KC.A)
-AERO_S = KC.LOPT(KC.S)
-AERO_D = KC.LOPT(KC.D)
-AERO_F = KC.LOPT(KC.F)
-AERO_G = KC.LOPT(KC.G)
-AERO_Z = KC.LOPT(KC.Z)
-AERO_X = KC.LOPT(KC.X)
-AERO_C = KC.LOPT(KC.C)
-AERO_V = KC.LOPT(KC.V)
-AERO_B = KC.LOPT(KC.B)
-AERO_N = KC.LOPT(KC.N)
-AERO_M = KC.LOPT(KC.M)
-AERO_LT = KC.LOPT(KC.H)
-AERO_RT = KC.LOPT(KC.L)
-AERO_UP = KC.LOPT(KC.K)
-AERO_DN = KC.LOPT(KC.J)
-AERO_COM = KC.LOPT(KC.COMM)
-AERO_DOT = KC.LOPT(KC.DOT)
-AERO_SLH = KC.LOPT(KC.SLSH)
-AERO_TAB = KC.LOPT(KC.TAB)
-RAYCAST = KC.LOPT(KC.SPC)
+# Create shorter Hyperland key names
+HL_1 = KC.LEFT_SUPER(KC.N1)
+HL_2 = KC.LEFT_SUPER(KC.N2)
+HL_3 = KC.LEFT_SUPER(KC.N3)
+HL_4 = KC.LEFT_SUPER(KC.N4)
+HL_5 = KC.LEFT_SUPER(KC.N5)
+HL_6 = KC.LEFT_SUPER(KC.N6)
+HL_7 = KC.LEFT_SUPER(KC.N7)
+HL_8 = KC.LEFT_SUPER(KC.N8)
+HL_9 = KC.LEFT_SUPER(KC.N9)
+HL_LT = KC.LEFT_SUPER(KC.LEFT)
+HL_RT = KC.LEFT_SUPER(KC.RIGHT)
+HL_UP = KC.LEFT_SUPER(KC.UP)
+HL_DN = KC.LEFT_SUPER(KC.DOWN)
+HL_NEXT = KC.LEFT_SUPER(KC.LEFT_ALT(KC.TAB))
+HL_PREV = KC.LEFT_SUPER(KC.LEFT_ALT(KC.LSFT(KC.TAB)))
+HL_TAB = KC.LEFT_SUPER(KC.TAB)
 
 # fmt:off
 keyboard.keymap = [
@@ -160,11 +145,11 @@ keyboard.keymap = [
                                       L3,    L1_L4_TAP,    KC.ENT,        KC.SPC,    L2_L4_TAP,    KC.RGUI,
     ],
 
-    # L3 - Braces
+    # L3 - Braces & Hyperland window navigation in groups
     # ,-----------------------------------------.                    ,-----------------------------------------.
     # | Tab  |      |      |      |      |      |                    |      |  [   |  ]   |      |      | Bksp |
     # |------+------+------+------+------+------|                    |------+------+------+------+------+------|
-    # | LCtl |      |      |      |      |      |                    |      |  (   |  )   |      |  |   |      |
+    # | LCtl |      |      |      |      |      |                    | PREV |  (   |  )   | NEXT |  |   |      |
     # |------+------+------+------+------+------|                    |------+------+------+------+------+------|
     # | LSft |      |      |      |      |      |-------.    ,-------|      |  {   |  }   |      |  \   | RSft |
     # `-----------------------------------------/       /     \      \-----------------------------------------'
@@ -173,27 +158,27 @@ keyboard.keymap = [
     #                          `---------------------'           '------''-------------'
     [
         KC.TAB,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                XXXXXXX, KC.LBRC, KC.RBRC, XXXXXXX, XXXXXXX, KC.BSPC,
-        KC.LCTL, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                XXXXXXX, KC.LPRN, KC.RPRN, XXXXXXX, KC.PIPE, XXXXXXX,
+        KC.LCTL, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                HL_PREV, KC.LPRN, KC.RPRN, HL_NEXT, KC.PIPE, XXXXXXX,
         KC.LSFT, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                XXXXXXX, KC.LCBR, KC.RCBR, XXXXXXX, KC.BSLS, KC.RSFT,
                                       L3,    L1_L4_TAP,    KC.ENT,        KC.SPC,   L2_L4_TAP,    KC.RGUI,
     ],
-    
-    # L4 - Aerospace (all keys have ALT/OPT applied above)
+
+    # L4 - Hyperland
     # ,-----------------------------------------.                    ,-----------------------------------------.
-    # | Tab  |  1   |  2   |  3   |  4   |  5   |                    |  6   |  7   |  8   |  9   |  0   |      |
+    # | Tab  |      |      |      |      |      |                    |      |      |      |      |      |      |
     # |------+------+------+------+------+------|                    |------+------+------+------+------+------|
-    # |      |  A   |  S   |  D   |  F   |  G   |                    | Left | Down |  Up  | Right|  ;   |      |
+    # |      |  1   |  2   |  3   |  4   |      |                    | Left | Down |  Up  | Right|      |      |
     # |------+------+------+------+------+------|                    |------+------+------+------+------+------|
-    # | LSft |  Z   |  X   |  C   |  V   |  B   |-------.    ,-------|  N   |  M   |  ,   |  .   |  /   | RSft |
+    # | LSft |  5   |  6   |  7   |  8   |  9   |-------.    ,-------| G-lf | G-dn | G-up | G-rt |      | RSft |
     # `-----------------------------------------/       /     \      \-----------------------------------------'
     #                          |  L3  |  L4  | / Enter /       \ Ray  \  |  L4  | RCmd |
     #                          |      |  --  |/       /         \ Cast \ |  --  |      |
     #                          `---------------------'           '------''-------------'
     [
-        AERO_TAB, AERO_1,  AERO_2,  AERO_3,  AERO_4,  AERO_5,                 AERO_6,   AERO_7,   AERO_8,  AERO_9,  AERO_0,  XXXXXXX,
-        XXXXXXX,  AERO_A,  AERO_S,  AERO_D,  AERO_F,  AERO_G,                 AERO_LT,  AERO_DN,  AERO_UP, AERO_RT, KC.SCLN, XXXXXXX,
-        KC.LSFT,  AERO_Z,  AERO_X,  AERO_C,  AERO_V,  AERO_B,                 AERO_N,   AERO_M,  AERO_COM, AERO_DOT, AERO_SLH, KC.RSFT,
-                                         L3,    L1_L4_TAP, KC.ENT,        RAYCAST,    L2_L4_TAP,    KC.RGUI,
+        HL_TAB, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,           XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX,  HL_1,    HL_2,    HL_3,    HL_4,  XXXXXXX,           HL_LT,    HL_DN,   HL_UP,   HL_RT,  XXXXXXX, XXXXXXX,
+        KC.LSFT,  HL_5,    HL_6,    HL_7,    HL_8,    HL_9,            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC.RSFT,
+                                     L3,   L1_L4_TAP,   KC.ENT,     XXXXXXX,    L2_L4_TAP,    KC.RGUI,
     ],
 
     # L5 - LEDS
